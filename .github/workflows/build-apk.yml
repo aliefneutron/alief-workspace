@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Extract project zip
+      - name: Extract Project Zip
         run: |
           unzip -o Alief-Workspace-Android-source-3.5.zip -d .
 
@@ -26,11 +26,15 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build with Gradle
-        run: gradle assembleDebug
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build Debug APK
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: app-debug
-          path: "**/outputs/apk/debug/*.apk"
+          path: "**/outputs/apk/**/*.apk"
