@@ -3,8 +3,6 @@ name: Build Android APK
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -12,8 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Extract project zip
+        run: |
+          unzip -o Alief-Workspace-Android-source-3.5.zip -d .
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -31,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: build/outputs/apk/debug/*.apk
+          path: "**/outputs/apk/debug/*.apk"
