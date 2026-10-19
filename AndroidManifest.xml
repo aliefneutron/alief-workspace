@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="14" android:versionName="3.0.0-dola-decoder">
+ <uses-permission android:name="android.permission.INTERNET"/>
+ <application android:label="Alief Workspace" android:icon="@drawable/alief_logo" android:roundIcon="@drawable/alief_logo" android:theme="@style/AppTheme" android:allowBackup="false" android:usesCleartextTraffic="false" android:supportsRtl="true">
+  <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+  <activity android:name=".Tab2" android:exported="false" android:launchMode="singleTop" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize"/>
+  <activity android:name=".Tab3" android:exported="false" android:launchMode="singleTop" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize"/>
+  <activity android:name=".Tab4" android:exported="false" android:launchMode="singleTop" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize"/>
+  <activity android:name=".Tab5" android:exported="false" android:launchMode="singleTop" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" android:windowSoftInputMode="adjustResize"/>
+  <provider android:name=".LibraryProvider" android:authorities="id.aliefneutron.studio.library" android:exported="false" android:grantUriPermissions="true"/>
+ </application>
+</manifest>
+
